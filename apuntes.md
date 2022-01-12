@@ -91,4 +91,3 @@ yarn add react-native-google-places-autocomplete
 yarn add react-native-maps-directions
 ```
 
-3:17:00
