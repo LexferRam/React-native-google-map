@@ -83,5 +83,12 @@ yarn add react-native-google-places-autocomplete
 
 ## React native maps
 
+<https://github.com/react-native-maps/react-native-maps>
 
-MIN: 1:56:32
+## React native Maps directions
+
+```npm
+yarn add react-native-maps-directions
+```
+
+2:38:00

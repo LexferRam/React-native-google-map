@@ -4,24 +4,12 @@ import tw from 'tailwind-react-native-classnames'
 import NavOptions from '../components/NavOptions'
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { GOOGLE_MAPS_APIKEY } from '@env'
-import { Card, Button } from 'react-native-paper';
-import { DataTable, List } from 'react-native-paper';
-
-const optionsPerPage = [2, 3, 4];
-
+import { useDispatch } from 'react-redux'
+import { setDestination, setOrigin } from '../slices/navSlice'
 
 const HomeScreen = () => {
 
-    const [page, setPage] = React.useState(0);
-    const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0]);
-
-    const [expanded, setExpanded] = React.useState(true);
-
-    const handlePress = () => setExpanded(!expanded);
-
-    React.useEffect(() => {
-        setPage(0);
-    }, [itemsPerPage]);
+    const dispatch = useDispatch()
 
     return (
         <SafeAreaView style={[tw`bg-white h-full`, { overflowY: 'scroll' }]}>
@@ -49,6 +37,12 @@ const HomeScreen = () => {
                         console.log(data)
                         console.log(details)
                         console.log('aqui')
+                        dispatch(setOrigin({
+                            location: details.geometry.location,
+                            description: details.description
+                        }))
+
+                        dispatch(setDestination(null))
                     }}
                     fetchDetails={true}
                     returnKeyType={'search'}
@@ -63,31 +57,6 @@ const HomeScreen = () => {
                 />
 
                 <NavOptions />
-                <Card>
-                    <Card.Actions>
-                        <Button>Cancel</Button>
-                        <Button>Ok</Button>
-                    </Card.Actions>
-                </Card>
-
-
-                <List.Section title="Accordions">
-                    <List.Accordion
-                        title="Uncontrolled Accordion"
-                        left={props => <List.Icon {...props} icon="folder" />}>
-                        <List.Item title="First item" />
-                        <List.Item title="Second item" />
-                    </List.Accordion>
-
-                    <List.Accordion
-                        title="Controlled Accordion"
-                        left={props => <List.Icon {...props} icon="folder" />}
-                        expanded={expanded}
-                        onPress={handlePress}>
-                        <List.Item title="First item" />
-                        <List.Item title="Second item" />
-                    </List.Accordion>
-                </List.Section>
             </View>
         </SafeAreaView>
     )
