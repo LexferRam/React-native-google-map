@@ -58,9 +58,9 @@ yarn add react-native-google-places-autocomplete
 1. ir a google cloud platform consola
 2. crear nuevo proyecto
 3. API y servicios>panel>enable APIs and services
-4. Buscar: Directions API, seleccionar direccion between multiple locations, darle click y seleccionar 'habilitar'
-5. en API adicionales buscar: Places API, seleccionarla y seleccionar 'habilitar'
-6. en API adicionales buscar: Distance matrix , seleccionarla y seleccionar 'habilitar'
+4. Buscar: **Directions API**, seleccionar direccion between multiple locations, darle click y seleccionar 'habilitar'
+5. en API adicionales buscar: **Places API**, seleccionarla y seleccionar 'habilitar'
+6. en API adicionales buscar: **Distance matrix** , seleccionarla y seleccionar 'habilitar'
 7. en el menu lateral izq seleccionar 'credenciales'
 8. seleccionar 'crear credenciales'>'clave de APi'(generar KEY)
 9. agregar el key al .env
